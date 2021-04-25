@@ -1,0 +1,46 @@
+﻿<h2>Cliente</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="background-color:gray">
+            <th>#</th>
+            <th>#</th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>CPF_CNPJ</th>
+            <th>Email</th>
+            <th>Senha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<ClienteModel>)ViewBag.ListaClientes)
+        {
+            <tr>
+                <td><button class="btn btn-warning" onclick="Editar(@item.Id)">Editar</button></td>
+                <td><button class="btn btn-danger" onclick="Excluir(@item.Id)">Excluir</button></td>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Cpf_Cnpj</td>
+                <td>@item.Email</td>
+                <td>@item.Senha</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-block btn-primary" onclick="Cadastrar()">Cadastrar Cliente</button>
+<script>
+
+    function Editar(Id) {
+        window.location.href = "../Cliente/Cadastro/" + Id;
+    }
+
+    function Excluir(Id) {
+        window.location.href = "../Cliente/Excluir/" + Id;
+    }
+
+    function Cadastrar() {
+        window.location.href = "../Cliente/Cadastro";
+    }
+
+</script>

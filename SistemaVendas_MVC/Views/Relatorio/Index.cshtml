@@ -1,0 +1,12 @@
+﻿<h1>Relatório do Sistema</h1>
+
+<button type="button" class="btn btn-block btn-primary" onclick="Relatorio('Vendas')">Vendas por Período</button>
+<button type="button" class="btn btn-block btn-warning" onclick="Relatorio('Grafico')">Grafico de Vendas</button>
+<button type="button" class="btn btn-block btn-success" onclick="Relatorio('Comissao')">Comissão de Vendedores</button>
+
+<script>
+
+    function Relatorio(action) {
+        window.location.href = "../Relatorio/" + action;
+    }
+</script>

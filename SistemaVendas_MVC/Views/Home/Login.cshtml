@@ -1,0 +1,55 @@
+﻿@model LoginModel
+@{
+    Layout = "../Shared/_LayoutLogin.cshtml";
+}
+
+
+<div class="login-form">
+    <form asp-controller="Home" asp-action="Login" method="post">
+        <h2 class="text-center">Sistema Vendas</h2>
+
+        @*@{
+            try
+            {
+                var erro = TempData["ErroLogin"].ToString();
+                <h5 class="text-danger">@erro</h5>
+            }
+            catch
+            {
+
+            }
+        }*@
+
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <span class="fa fa-user"></span>
+                    </span>
+                </div>
+                <input type="text" class="form-control" asp-for="Email" placeholder="Email">
+            </div>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </div>
+                <input type="password" class="form-control" asp-for="Senha" maxlength="10" placeholder="Senha">
+            </div>
+            <span asp-validation-for="Senha"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary login-btn btn-block">Entrar</button>
+        </div>
+        <div class="clearfix">
+            <label class="float-left form-check-label"><input type="checkbox">Lembrar meu acesso</label>
+            <a href="#" class="float-right">Esqueceu a senha ?</a>
+        </div>
+    </form>
+    <p class="text-center text-muted small" style="color:#000000"> Não tem uma conta ? <a href="#">Crie Aqui!</a></p>
+</div>

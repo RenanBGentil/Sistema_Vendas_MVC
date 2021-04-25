@@ -1,0 +1,50 @@
+﻿<h2>Produto</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="background-color:gray">
+            <th>#</th>
+            <th>#</th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço_Unitário</th>
+            <th>Quantidade_Estoque</th>
+            <th>Unidade_Medida</th>
+            <th>Foto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<ProdutoModel>)ViewBag.ListaProdutos)
+        {
+            <tr>
+                <td><button class="btn btn-warning" onclick="Editar(@item.Id)">Editar</button></td>
+                <td><button class="btn btn-danger" onclick="Excluir(@item.Id)">Excluir</button></td>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Descricao</td>
+                <td>@item.Preco_Unitario</td>
+                <td>@item.Quantidade_Estoque</td>
+                <td>@item.Unidade_Medida</td>
+                <td><img src="@item.Link_Foto" width="150" height="150"/></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-block btn-primary" onclick="Cadastrar()">Cadastrar Produto</button>
+<script>
+
+    function Editar(Id) {
+        window.location.href = "../Produto/Cadastro/" + Id;
+    }
+
+    function Excluir(Id) {
+        window.location.href = "../Produto/Excluir/" + Id;
+    }
+
+    function Cadastrar() {
+        window.location.href = "../Produto/Cadastro";
+    }
+
+</script>

@@ -1,0 +1,32 @@
+﻿<h1>Listagem de Vendas</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="background-color:gray">
+            <th>Id</th>
+            <th>Data</th>
+            <th>Vendedor</th>
+            <th>Cliente</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<VendaModel>)ViewBag.ListaVendas)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Data</td>
+                <td>@item.Cliente_Id</td>
+                <td>@item.Vendedor_Id</td>
+                <td>R$ @item.TotalVenda</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-block btn-primary" onclick="Cadastrar()">Registrar Vendas</button>
+<script>
+    function Cadastrar() {
+        window.location.href = "../Venda/Registrar";
+    }
+
+</script>

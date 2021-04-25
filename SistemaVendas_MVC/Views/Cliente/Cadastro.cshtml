@@ -1,0 +1,46 @@
+﻿@model ClienteModel
+
+<h2>Cadastro de Clientes</h2>
+<hr />
+<form asp-controller="Cliente" asp-action="Cadastro">
+    <input type="hidden" asp-for="Id" value=" @try{ @ViewBag.Cliente.Id} catch{ }" />
+
+    <div class="form-group">
+            <label>Nome</label>
+            <input type="text" asp-for="Nome" class="form-control"  value=" @try{ @ViewBag.Cliente.Nome} catch{ }"/>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+            <label>CNPJ_CPF</label>
+            <input type="text" asp-for="Cpf_Cnpj" class="form-control" value=" @try{ @ViewBag.Cliente.Cpf_Cnpj} catch{ }"/>
+            <span asp-validation-for="Cpf_Cnpj" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+            <label>Email</label>
+            <input type="text" asp-for="Email" class="form-control" value=" @try{ @ViewBag.Cliente.Email} catch{ }"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+        <button type="submit" class="btn btn-block btn-success">Registrar</button>
+</form>
+
+@*<script>
+
+    function Novo() {
+        Request("Cadastro");
+    }
+
+    function Listagem() {
+        Request("");
+    }
+
+    function Excluir(Id) {
+        Request("Excluir\\" + Id);
+    }
+
+    function Request(request) {
+        window.location = window.origin + "\\Cliente\\" + request;
+    }
+</script>*@
